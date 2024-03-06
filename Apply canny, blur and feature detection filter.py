@@ -10,7 +10,7 @@ CANNY=3
 feature_params=dict(maxCorners=500,qualityLevel=0.2,minDistance=15,blockSize=9)
 s=0
 if len(sys.argv)>1:
-    s=int(sys.argv[1])  # Convert command line argument to integer
+    s=int(sys.argv[1])  
     
 image_filter=PREVIEW
 alive=True
@@ -32,7 +32,7 @@ while alive:
         result=frame
     elif image_filter==CANNY:
         result=cv2.Canny(frame,80,150)
-    elif image_filter==BLUR:  # Corrected typo here from "BLIR" to "BLUR"
+    elif image_filter==BLUR:  
         result=cv2.blur(frame,(13,13))
     elif image_filter==FEATURES:
         result=frame
@@ -46,7 +46,7 @@ while alive:
     cv2.imshow(win_name,result)
     
     key=cv2.waitKey(1)
-    if key==ord("Q") or key==ord("q") or key==27:  # Fixed syntax here
+    if key==ord("Q") or key==ord("q") or key==27:  
         alive=False
     elif key==ord("C") or key==ord("c"):
         image_filter=CANNY
@@ -58,4 +58,4 @@ while alive:
         image_filter=PREVIEW
         
 source.release()
-cv2.destroyAllWindows()  # Changed to destroyAllWindows() to close all windows
+cv2.destroyAllWindows()  
